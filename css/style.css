@@ -139,7 +139,6 @@ nav ul li a:hover {
   display: flex;
   width: 100%;
   height: 100%;
-  flex-direction: column;
   margin: 0 auto;
 }
 
@@ -165,14 +164,14 @@ nav ul li a:hover {
   justify-content: stretch;
 }
 
-article {
+#deskripsi .article {
   padding: 10px;
   width: 50%;
 }
 
 #tentangSaya p {
   color: rgb(51, 51, 51);
-  padding: 15px;
+  padding: 15px\;
 }
 
 figure {
@@ -181,7 +180,7 @@ figure {
 }
 
 figure .image {
-  border-radius: 90px;
+  border-radius: 30px;
   width: 100%;
   height: 100%;
 }
@@ -196,6 +195,8 @@ figcaption {
 #tentangSaya {
   display: flex;
   flex-direction: column;
+  width: 50%;
+  margin-right: 15px;
 }
 
 #tentangSaya iframe {
@@ -212,8 +213,9 @@ figcaption {
 }
 
 #profilDiri {
-  padding-bottom: 15px;
   color: rgb(51, 51, 51);
+  width: 50%;
+  margin-left: 15px;
 }
 
 #profilDiri li {
@@ -225,27 +227,33 @@ figcaption {
 
 #profilDiri p {
   padding: 30px;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
 #personal {
   display: flex;
   flex-direction: row;
+  width: 100%;
   padding: 50px;
+  justify-content: space-between;
 }
 
 #hobi {
   margin-right: 25px;
+  width: 50%;
 }
 
 #sosmed {
+  width: 50%;
   margin-left: 25px;
 }
 
 #galeri {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 #galeri img {
@@ -261,7 +269,7 @@ figcaption {
 #media {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 #media img {
@@ -287,7 +295,8 @@ figcaption {
 #kemampuan {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  width: 70%;
 }
 
 .teknis {
@@ -338,6 +347,7 @@ figcaption {
 }
 
 #location {
+  flex-direction: column;
   background-color: rgb(255, 255, 240);
 }
 
@@ -388,122 +398,8 @@ p {
   text-justify: inter-word;
 }
 @media screen and (max-width: 768px) {
-  /* nav ul {
-    width: 50%;
-  } */
-
-  .menu-toggle {
-    display: flex;
-  }
-  main {
-    flex-direction: column-reverse;
-  }
-  /* nav ul {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 50%;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: burlywood;
-    /* transform: translateX(100%);  */
-    /* transition: all 0.72s;
-    opacity: 0;
-    z-index: 2;
-  }
-  nav ul.menushow {
-    opacity: 0.5; */
-    /* transform: translateX(0); */
-  /* } */
-
   nav ul {
-    position: absolute;
-    right: 0;
-    top: 0;
     width: 50%;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: burlywood;
-    transition: all 0.72s;
-    opacity: 0;
-    z-index: 2;
-  }
-  nav ul.menushow {
-    opacity: 1;
-  }
-  .menu-toggle {
-    display: flex;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 3;
-  }
-  .menu-toggle input:checked ~ ul {
-    opacity: 1;
-  }
-  .logo {
-    margin-left: 10px;
-  }
-  .logo .image {
-    max-width: 50px;
-  }
-  nav ul li a {
-    font-size: 1rem;
-  }
-  .container {
-    padding-top: 60px;
-  }
-  #profil {
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-  }
-
-  #deskripsi {
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-  }
-
-  #deskripsi,
-  figure {
-    width: 100%;
-  }
-  #tentangSaya iframe {
-    width: 100%;
-    height: 200px;
-  }
-  #personal {
-    flex-direction: column;
-    padding: 20px;
-  }
-  #personal article {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  #hobi,
-  #sosmed {
-    margin: 0;
-  }
-  #galeri {
-    justify-content: center;
-  }
-  #media {
-    justify-content: space-around;
-  }
-  #skills {
-    height: auto;
-    padding-bottom: 30px;
-  }
-  #kemampuan {
-    flex-direction: column;
-  }
-  .teknis {
-    width: 100%;
   }
 }
 
@@ -514,26 +410,6 @@ p {
   main {
     flex-direction: column-reverse;
   }
-  /* nav ul {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 50%;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: burlywood;
-    /* transform: translateX(100%);  */
-    /* transition: all 0.72s;
-    opacity: 0;
-    z-index: 2;
-  }
-  nav ul.menushow {
-    opacity: 0.5; */
-    /* transform: translateX(0); */
-  /* } */
-
   nav ul {
     position: absolute;
     right: 0;
@@ -544,81 +420,147 @@ p {
     justify-content: space-evenly;
     align-items: center;
     background-color: burlywood;
+    transform: translateX(100%); 
     transition: all 0.72s;
     opacity: 0;
     z-index: 2;
   }
   nav ul.menushow {
-    opacity: 1;
+    opacity: 0.5;
+    transform: translateX(0);
   }
-  .menu-toggle {
-    display: flex;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 3;
-  }
-  .menu-toggle input:checked ~ ul {
-    opacity: 1;
-  }
-  .logo {
-    margin-left: 10px;
-  }
-  .logo .image {
-    max-width: 50px;
-  }
-  nav ul li a {
-    font-size: 1rem;
-  }
-  .container {
-    padding-top: 60px;
-  }
-  #profil {
+
+  #home {
     flex-direction: column;
-    justify-content: center;
+    padding: 0;
+  }
+
+  #home figure {
+    margin-top: 30px;
+  }
+
+  #profil {
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    justify-content: center;
   }
 
   #deskripsi {
     flex-direction: column;
+    width: 100%;
     justify-content: center;
+  }
+
+  #tentangSaya {
+    padding-top: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  #tentangSaya p {
+    width: 90%;
+    margin-left: 15px;
+  }
+
+  #profilDiri {
+    width: 100%;
+    padding-top: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #profilDiri li {
+    width: 90%;
+  }
+  
+  #personal {
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+  }
+
+  #hobi {
+    justify-content: center;
+    margin-right: 0;
+    margin-bottom: 10px;
+    width: 80%;
+  }
+
+  #galeri img {
+    width: 100px;
+    height: 100px;
+  }
+
+  #sosmed {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 80%;
+  }
+
+  #media img {
+    width: 70px;
+    height: 70px;
+  }
+
+  #skills {
+    height: 100%;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  #kemampuan {
+    flex-direction: column;
+    width: 80%;
+    align-items: stretch;
+  }
+  
+  .teknis {
+    flex-direction: row;
     width: 100%;
   }
 
-  #deskripsi,
-  figure {
+  #wish {
+    height: 100%;
     width: 100%;
-  }
-  #tentangSaya iframe {
-    width: 100%;
-    height: 200px;
-  }
-  #personal {
     flex-direction: column;
-    padding: 20px;
+
   }
-  #personal article {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  #hobi,
-  #sosmed {
-    margin: 0;
-  }
-  #galeri {
+
+  #lesson {
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+    margin-right: 0;
     justify-content: center;
   }
-  #media {
-    justify-content: space-around;
+
+  #lesson h2 {
+    text-align: center;
   }
-  #skills {
-    height: auto;
-    padding-bottom: 30px;
-  }
-  #kemampuan {
+
+  #harapan {
     flex-direction: column;
+    width: 90%;
+    height: 100%;
+    margin-left: 0;
+    justify-self: center;
   }
-  .teknis {
+
+  #harapan h2 {
+    text-align: center;
+  }
+
+  #location {
+    width: 100%;
+    height: 100%;
+  }
+
+  #location .map {
+    margin: 0;
     width: 100%;
   }
 }
