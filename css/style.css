@@ -351,6 +351,38 @@ figcaption {
   background-color: rgb(255, 255, 240);
 }
 
+#scrapping-page {
+  width: 1500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  margin-bottom: 50px;
+}
+
+#scrapping-title {
+  margin: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  align-self: center;
+}
+table, th:first-child, td:first-child {
+  border-right: 1px solid black;
+  width: 50px;
+}
+
+table, th, td {
+  width: 280px;
+  align-self: center;
+  text-align: center;
+  border: 1px solid black;
+  
+}
+
 .title {
   text-align: center;
 }

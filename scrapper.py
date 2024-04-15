@@ -18,7 +18,6 @@ else:
 
 filename = "headline.json"
 previous_data = []
-# and os.path.getsize(filename) > 0
 
 if os.path.exists(filename) and os.path.getsize(filename) > 0:
     with open(filename, "r") as f:
@@ -49,8 +48,8 @@ for data_scrap in data.find_all('li', attrs={'class': 'conten1'}):
     datas.append({
         'title': title,
         'category': category,
-        'waktu_publish': publish.split('-')[1].strip(),
-        'waktu_scrapping': time_collected
+        'publish_time': publish.split('-')[1].strip(),
+        'storing_time': time_collected
     })
 
 previous_data.extend(datas)
