@@ -18,6 +18,7 @@ nav {
   height: 85px;
   align-items: center;
   color: whitesmoke;
+  z-index: 1;
 }
 nav ul {
   display: flex;
@@ -369,6 +370,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   align-self: center;
+  z-index: 1;
 }
 table, th:first-child, td:first-child {
   border-right: 1px solid black;
