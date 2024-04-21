@@ -168,6 +168,32 @@
                 
             </tbody>
         </table>
+        <div id="hasil_json"></div>
+            <script type="text/javascript">
+                $(function(){
+                    $.getJSON('https://raw.githubusercontent.com/rioBMO/rioBMO.github.io/alnay/manga/manga/spiders/hasil.json', function(obj) {
+                        var str = "<table border=1>";
+                        str += "<tr><td>Rank</td><td>Title</td><td>Image</td><td>Information</td><td>Synopsis</td><td>Popularity</td><td>Serialization</td><td>author</td></tr>";
+            
+                        $.each(obj, function(n, data) {
+                                str += "<tr><td>"+(n+1)+"</td>";
+                                    str += "<tr><td>"+data.rank+"</td>";
+                                    str += "<td>"+data.title+"</td>";
+                                    str += "<td><img src='" + data.image + "' alt='" + data.title + "'></td>";                                   
+                                    str += "<td>"+data.image+"</td>";
+                                    str += "<td>"+data.information.join("<br>")+"</td>";
+                                    str += "<td>"+data.synopsis+"</td>";
+                                    str += "<td>"+data.popularity+"</td>";
+                                    str += "<td>"+data.serialization+"</td>";
+                                    str += "<td>"+data.author.join(", ")+"</td></tr>";
+                        });
+            
+                        str += "</table>";
+            
+                        $('#hasil_json').html(str);
+                    });
+                }); 
+            </script>
     </div>
     <div class="container" id="location">
         <h1 class="title">Lokasi Saya</h1>
