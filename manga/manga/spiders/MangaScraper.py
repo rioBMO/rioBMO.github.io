@@ -28,6 +28,7 @@ class MangaSpider(scrapy.Spider):
             'title': response.meta['title'],
             'image': response.meta['image'],
             'information': response.meta['information'],
+            'score': response.meta['score'],
             'synopsis': response.css('span[itemprop="description"]::text').get(),
             'popularity': response.css('span.numbers.popularity strong::text').get(),
             'type' : response.css('div.spaceit_pad:contains("Type:") a::text').get(),
