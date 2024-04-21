@@ -21,7 +21,7 @@ class MangaSpider(scrapy.Spider):
             next_page_url = "https://myanimelist.net/topmanga.php"+next_page
             yield response.follow(next_page_url, callback = self.parse)
 
-def parse_detail(self, response):
+    def parse_detail(self, response):
         yield {
             'rank': response.meta['rank'],
             'title': response.meta['title'],
@@ -29,8 +29,14 @@ def parse_detail(self, response):
             'information': response.meta['information'],
             'synopsis': response.css('span[itemprop="description"]::text').get(),
             'popularity': response.css('span.numbers.popularity strong::text').get(),
-            'type': response.css('div.spaceit_pad span.dark_text::text').re_first(r'Type:\s*(.*)'),
+            'type' : response.css('div.spaceit_pad:contains("Type:") a::text').get(),
             'genres': response.css('div.spaceit_pad span[itemprop="genre"]::text').getall(),
             'serialization': response.css('div.spaceit_pad:contains("Serialization:") a::text').get(),
             'author': response.css('div.spaceit_pad:contains("Authors:") a::text').getall(),
+            'members': response.css('span.numbers.members strong::text').get(),
+            'favorites': response.css('div.spaceit_pad:contains("Favorites:")::text').get(),
+            'volumes': response.css('div.spaceit_pad:contains("Volumes:")::text').get(),
+            'chapters': response.css('div.spaceit_pad:contains("Chapters:")::text').get(),
+            'status': response.css('div.spaceit_pad:contains("Status:")::text').get(),
+            'published': response.css('div.spaceit_pad:contains("Published:")::text').get(),
         }
