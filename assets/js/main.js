@@ -147,3 +147,107 @@
   }
 
 })();
+
+function dataFilter() {
+  var genre = document.getElementById("genre-selector").value;
+  var type = document.getElementById("type-selector").value;
+  if ($.fn.DataTable.isDataTable('#datatble')) {
+      $('#datatable').DataTable().destroy();
+  }
+  datatable = $('#datatable').DataTable({
+      ajax: {
+          url: "/manga/manga/hasil.json",
+          dataSrc: ""
+      },
+      scrollX: true,
+      columns: [
+        { 
+          data: "rank",
+          orderable: true,
+          orderSequence: ["asc", "desc"]
+        },
+        {
+          data: "image",
+          render: function (data) {
+            return '<img src="' + data + '" alt="Image" style="max-width: 150px; border-radius: 10px;">';
+          },
+          orderable: false
+        },
+        { 
+          data: "title",
+          orderable: true,
+          orderSequence: ["asc", "desc"]
+        },
+        { 
+          data: "type",
+          orderable: false
+        },
+        {
+          data: "synopsis",
+          render: function (data) {
+            return '<textarea class="form-control" style="width: 300px;" rows="4" readonly>' + data + '</textarea>'
+          },
+          orderable: false
+        },
+        { 
+          data: "genre",
+          orderable: false
+        },
+        { 
+          data: "score",
+          orderable: true,
+          orderSequence: ["asc", "desc"]
+        },
+        { data: "status" },
+        { 
+          data: "published",
+          orderable: false,
+        },
+        { 
+          data: "authors",
+          orderable: false
+        },
+        {
+          data: "volumes",
+          orderable: false
+        },
+        {
+          data: "chapters",
+          orderable: false
+        },
+        {
+          data: "serialization",
+          orderable: false
+        },
+        {
+          data: "popularity",
+          orderable: false
+        },
+        { 
+          data: "members",
+          orderable: true,
+          orderSequence: ["asc", "desc"]
+        },
+        {
+          data: "favorites",
+          orderable: false,
+        }
+      ],
+      initComplete: function (settings, json) {
+        var datatable = this.api();
+        var rank = 1;
+        datatable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+          var genres = datatable.cell(rowIdx, 5).data();
+          var types = datatable.cell(rowIdx, 3).data();
+  
+          if ((genre === "all_genre" || genres.includes(genre)) && (type === "all_type" || types === type)) {
+            datatable.cell(rowIdx, 0).data(rank++);
+          }
+          else {
+            datatable.row(rowIdx).remove();
+          }
+        });
+        datatable.draw();
+      } 
+  })
+}
