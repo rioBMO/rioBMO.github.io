@@ -49,19 +49,13 @@
       </a>
     </div><!-- End Logo -->
 
-    <div class="search-bar">
-      
-    </div><!-- End Search Bar -->
-
     <nav class="header-nav ms-auto">
       <ul>
         <li><a href=""></a></li>
       </ul>
-    </nav><!-- End Icons Navigation -->
+    </nav>
 
   </header><!-- End Header -->
-
-  <!-- ======= Sidebar ======= -->
 
   <main id="main" class="main">
 
@@ -82,7 +76,7 @@
             <div class="card-body">
               <h5 class="card-title">All Manga</h5>
               <h6>Filter by genre :</h6>
-              <select class="form-select" name="genre" id="genre-selector" onchange="filter()">
+              <select class="form-select" name="genre" id="genre-selector" onchange="dataFilter()">
                 <option value="all_genre">All Genre</option>
                 <option value="Action">Action</option>
                 <option value="Adventure">Adventure</option>
@@ -100,7 +94,7 @@
               </select>
               <br>
               <h6>Filter by type :</h6>
-              <select class="form-select" name="type" id="type-selector" onchange="filter()">
+              <select class="form-select" name="type" id="type-selector" onchange="dataFilter()">
                 <option value="all_type">All Type</option>
                 <option value="Manga">Manga</option>
                 <option value="Light Novel">Light Novel</option>
@@ -128,7 +122,9 @@
                     <th scope="col">Favorites</th>
                   </tr>
                 </thead>
-
+                <tbody>
+                  
+                </tbody>
               </table>
             </div>
           </div>
@@ -163,6 +159,12 @@
   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
+  <script src="https://cdn.datatables.net/2.0.5/js/dataTables.bootstrap5.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
