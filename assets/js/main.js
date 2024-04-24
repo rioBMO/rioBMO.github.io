@@ -109,30 +109,6 @@
   })
 
   /**
-   * Initiate Datatables
-   */
-  const datatables = select('.datatable', true)
-  datatables.forEach(datatable => {
-    new simpleDatatables.DataTable(datatable, {
-      perPageSelect: [5, 10, 15, ["All", -1]],
-      columns: [{
-          select: 2,
-          sortSequence: ["desc", "asc"]
-        },
-        {
-          select: 3,
-          sortSequence: ["desc"]
-        },
-        {
-          select: 4,
-          cellClass: "green",
-          headerClass: "red"
-        }
-      ]
-    });
-  })
-
-  /**
    * Autoresize echart charts
    */
   const mainContainer = select('#main');
@@ -147,16 +123,26 @@
   }
 
 })();
+async function fetchData() {
+  try {
+    const response = await fetch('../../manga/hasil.json');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+  }
+  
+}
 
 function dataFilter() {
   var genre = document.getElementById("genre-selector").value;
   var type = document.getElementById("type-selector").value;
-  if ($.fn.DataTable.isDataTable('#datatble')) {
+  if ($.fn.DataTable.isDataTable('#datatable')) {
       $('#datatable').DataTable().destroy();
   }
   datatable = $('#datatable').DataTable({
       ajax: {
-          url: "/manga/manga/hasil.json",
+          url: "../../manga/hasil.json",
           dataSrc: ""
       },
       scrollX: true,
@@ -190,7 +176,7 @@ function dataFilter() {
           orderable: false
         },
         { 
-          data: "genre",
+          data: "genres",
           orderable: false
         },
         { 
@@ -204,7 +190,7 @@ function dataFilter() {
           orderable: false,
         },
         { 
-          data: "authors",
+          data: "author",
           orderable: false
         },
         {
@@ -248,6 +234,8 @@ function dataFilter() {
           }
         });
         datatable.draw();
-      } 
+      }
   })
 }
+
+dataFilter();
