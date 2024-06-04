@@ -151,6 +151,10 @@ h6 {
   background-color: #f6f9ff;
 }
 
+#datatable th {
+  display: none;
+}
+
 @media (min-width: 768px) {
   .dropdown-menu-arrow::before {
     content: "";
